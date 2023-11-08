@@ -1,5 +1,4 @@
 # backpocket
----
 
 ## TUGAS 7: Elemen Dasar Flutter
 
@@ -65,5 +64,13 @@
     menampilkan pesan sementara (biasanya notifikasi) di bagian bawah layar ketika user mengklik item toko.
    
 ### 3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
-
---- 
+   1. install Flutter untuk windows dari cmd di direktori yang mau ditempatkan oleh folder proyek
+   2. masuk ke direktori proyek dan create project flutter
+   3. buat file baru menu.dart dalam direktori backpocket/lib untuk membuat menu utama pada aplikasi
+   4. buat class MyHomePage dan class MyHomePageState pada file menu.dart
+   5. import menu.dart ke main.dart
+   6. ubah menu.dart dari stateful menjadi stateless
+   7. Tambah list yang berisi ShopItem agar dapat menampilkan tombol-tombol di home
+   8. Set Scaffold agar format tombol dapat di-scroll, memiliki padding, dan di-set menjadi gridView
+   9. buat widget stateless bernama ShopCard untuk menampilkan card
+   10. push kode ke repositori github
