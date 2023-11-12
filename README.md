@@ -1,7 +1,7 @@
 # backpocket
 
 ## TUGAS 7: Elemen Dasar Flutter
-
+<details>
 ### 1. Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
    Stateless widget tidak pernah berubah sehingga tidak bergantung pada apapun selain informasi tentang konfigurasinya; Contohnya adalah **Icon**, **IconButton**, dan **Text**
 
@@ -74,7 +74,7 @@
    8. Set Scaffold agar format tombol dapat di-scroll, memiliki padding, dan di-set menjadi gridView
    9. buat widget stateless bernama ShopCard untuk menampilkan card
    10. push kode ke repositori github
-
+</details>
 
 ## TUGAS 7: Elemen Dasar Flutter
 
