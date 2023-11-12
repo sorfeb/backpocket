@@ -79,6 +79,14 @@
 ## TUGAS 7: Elemen Dasar Flutter
 
 ### 1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
+   `Navigator.push()` dan `Navigator.pushReplacement()` adalah fungsi-fungsi yang digunakkan untuk menavigasi melalui berbagai _screens_ dalam Flutter.
+   
+   `Navigator.push()` **menambah** _route_ baru ke atas kumpulan stack _routes_ yang sudah diatur oleh Navigator. Berarti pengguna dapat menekan tombol _**back**_ untuk menutup _screen_ yang baru saja        ditambah dan menuju kembali  ke _screen_ sebelumnya.
+   Contoh dari penggunaan Navigator.push() adalah saat ingin menampilkan sebuah halaman _details_ mengenai sebuah _item_ dari sebuah halaman daftar _item_.
+
+   `Navigator.pushReplacement()` **mengganti** (berarti menutup _route_ yang berada di paling atas stack dan menambah _route_ yang baru). Berarti menekan tombol _**back**_ tidak dapat mengembalikan user      ke halaman sebelum _screen_ yang baru karena sudah digantikkan.
+   Contoh dari penggunaan Navigator.pushReplacement() adalah saat ingin menavigasi ke _screen_ baru yang tidak ada kaitan sama sekali dengan _screen_ saat ini; seperti saat User telah berhasil ter-         autentikasi dan akan diredirect ke halaman utama (User tidak dapat balik ke halaman Login lagi karena sudah tidak relevan).
+   
 ### 2. Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!
 ### 3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
 ### 4. Bagaimana penerapan clean architecture pada aplikasi Flutter?
