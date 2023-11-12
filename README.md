@@ -78,7 +78,9 @@
    10. push kode ke repositori github
 </details>
 
-## TUGAS 7: Elemen Dasar Flutter
+## Tugas 8: Flutter Navigation, Layouts, Forms, and Input Elements
+<details>
+<summary>Answers</summary>
 
 ### 1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
    `Navigator.push()` dan `Navigator.pushReplacement()` adalah fungsi-fungsi yang digunakkan untuk menavigasi melalui berbagai _screens_ dalam Flutter.
@@ -94,26 +96,27 @@
 ### 2. Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!
 #### 1. Single-child layout widgets
 
-      Container: Widget yang dapat digunakan untuk mengatur tampilan widget lainnya seperti padding, margin, dan background color.
-      Center: Widget yang digunakan untuk menempatkan widget lainnya di tengah-tengah layar.
-      Align: Widget yang digunakan untuk menempatkan widget lainnya pada posisi yang ditentukan.
-      FractionallySizedBox: Widget yang digunakan untuk menentukan ukuran widget anak sebagai fraksi dari ruang yang tersedia.
-      AspectRatio: Widget yang digunakan untuk menentukan rasio aspek widget anak.
-      Multi-child layout widgets
+   Container: Widget yang dapat digunakan untuk mengatur tampilan widget lainnya seperti padding, margin, dan background color.
+   Center: Widget yang digunakan untuk menempatkan widget lainnya di tengah-tengah layar.
+   Align: Widget yang digunakan untuk menempatkan widget lainnya pada posisi yang ditentukan.
+   FractionallySizedBox: Widget yang digunakan untuk menentukan ukuran widget anak sebagai fraksi dari ruang yang tersedia.
+   AspectRatio: Widget yang digunakan untuk menentukan rasio aspek widget anak.
+   Multi-child layout widgets
 
 #### 2. Row dan Column: Widget yang digunakan untuk menempatkan widget anak secara horizontal atau vertikal.
       
-      Stack: Widget yang digunakan untuk menumpuk widget anak di atas satu sama lain.
-      IndexedStack: Widget yang digunakan untuk menumpuk widget anak di atas satu sama lain, tetapi hanya menampilkan satu widget pada satu waktu.
-      Flow: Widget yang digunakan untuk menempatkan widget anak dalam bentuk aliran.
-      Wrap: Widget yang digunakan untuk menempatkan widget anak dalam bentuk wrapping.
+   Stack: Widget yang digunakan untuk menumpuk widget anak di atas satu sama lain.
+   IndexedStack: Widget yang digunakan untuk menumpuk widget anak di atas satu sama lain, tetapi hanya menampilkan satu widget pada satu waktu.
+   Flow: Widget yang digunakan untuk menempatkan widget anak dalam bentuk aliran.
+   Wrap: Widget yang digunakan untuk menempatkan widget anak dalam bentuk wrapping.
       
 #### 3. Sliver widgets
 
-      SliverAppBar: Widget yang digunakan untuk menampilkan app bar yang dapat di-scroll.
-      SliverList dan SliverGrid: Widget yang digunakan untuk menampilkan daftar atau grid yang dapat di-scroll.
-      SliverToBoxAdapter: Widget yang digunakan untuk menempatkan widget lainnya di dalam CustomScrollView .
+   SliverAppBar: Widget yang digunakan untuk menampilkan app bar yang dapat di-scroll.
+   SliverList dan SliverGrid: Widget yang digunakan untuk menampilkan daftar atau grid yang dapat di-scroll.
+   SliverToBoxAdapter: Widget yang digunakan untuk menempatkan widget lainnya di dalam CustomScrollView .
 
 ### 3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
 ### 4. Bagaimana penerapan clean architecture pada aplikasi Flutter?
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
+</details>
