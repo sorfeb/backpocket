@@ -74,3 +74,12 @@
    8. Set Scaffold agar format tombol dapat di-scroll, memiliki padding, dan di-set menjadi gridView
    9. buat widget stateless bernama ShopCard untuk menampilkan card
    10. push kode ke repositori github
+
+
+## TUGAS 7: Elemen Dasar Flutter
+
+### 1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
+### 2. Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!
+### 3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
+### 4. Bagaimana penerapan clean architecture pada aplikasi Flutter?
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
