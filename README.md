@@ -122,11 +122,13 @@
    - **Prinsip Tanggung Jawab Tunggal:** Sebuah metode/kelas/komponen harus memiliki satu alasan untuk berubah.
    - **Injeksi Ketergantungan:** Sebisa mungkin, ketergantungan kelas harus disediakan oleh objek di luar kelas.
    - **Arsitektur Kode**: yaitu _Clean architecture_.
-     
-   ![image](https://github.com/sorfeb/backpocket/assets/112263712/46b902bb-daa1-4fcc-8d36-4d3387fc45bf)
+
+<p align="center">
+   <image src= "https://github.com/sorfeb/backpocket/assets/112263712/46b902bb-daa1-4fcc-8d36-4d3387fc45bf">
+</p>
 
    #### Layers
-   ##### a. Feature Layer - lapisan presentasi aplikasi
+   ##### a. **Feature Layer** - lapisan presentasi aplikasi
    lapisan ini merupakan lapisan yang paling bergantung pada framework, karena berisi UI dan penangan peristiwa UI yang menggunakan widget untuk menampilkan tampilan.
    Widget ini dikontrol oleh state menggunakan berbagai pola desain manajemen state yang digunakan dalam Flutter.
    
@@ -134,7 +136,7 @@
    - Manajemen State: BLoC, Penyedia, GetX, dll.
    - Widget: Widget spesifik lainnya yang dibutuhkan oleh halaman kami.
    
-   ##### b. Domain Layer - innermost part of the layers (no dependencies with other layers) and it contains Entities, Use Cases & Repository Interfaces.
+   ##### b. **Domain Layer** - bagian paling dalam dari lapisan (tidak ada ketergantungan dengan lapisan lain) dan berisi Entitas, Kasus Penggunaan & Antarmuka Repositori.
    ditulis murni dalam Dart tanpa elemen Flutter. Alasannya adalah bahwa domain seharusnya hanya berkaitan dengan logika bisnis aplikasi. Hal ini juga memungkinkan migrasi yang mudah antar platform, 
    jika ada masalah yang muncul.
    
@@ -142,7 +144,7 @@
    - Entitas: Objek bisnis dari aplikasi
    - Repositori: Kelas abstrak yang mendefinisikan fungsionalitas yang diharapkan dari lapisan luar
    
-   ##### c. Data Layer  - lapisan data aplikasi
+   ##### c. **Data Layer**  - lapisan data aplikasi
    Modul Data, yang merupakan bagian dari lapisan terluar, bertanggung jawab untuk pengambilan data. Ini bisa dalam bentuk panggilan API ke server dan/atau basis data lokal. Modul ini juga berisi 
    implementasi repositori.
    
@@ -152,11 +154,228 @@
      persist.
    - Pemeta (Mapper): Memetakan objek Entity ke Model dan sebaliknya.
    
-   ##### d. Resources and Shared Library - dapat diakses oleh semua lapisan lainnya:
+   ##### d. **Resources and Shared Library** - dapat diakses oleh semua lapisan lainnya:
    - Sumber daya: Berisi aset (gambar, font, warna, dll), dan konfigurasi lainnya.
    - Pustaka Bersama: Berisi komponen yang dapat digunakan kembali, fungsi (navigasi, jaringan, dll), dan pustaka pihak ketiga.
 
    _source:_ [An Introduction to Flutter Clean Architecture](https://medium.com/ruangguru/an-introduction-to-flutter-clean-architecture-ae00154001b0)
    
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
+   **+ BONUS**
+   1. Organisir files-files dalam direktori `lib` agar rapi dengan menambahkan folder `screens` dan `widgets`.
+   2. `screens` berisi `menu.dart`.
+   3. `widgets` berisi `shop_card.dart` dan `left_drawer.dart`.
+   4. Buat file baru bernama `itemslist_form.dart` dan isi dengan kode untuk form mendaftar item baru dan juga tambahkan list untuk menampung item yang baru ditambahkan dengan nama `AddedItems`.
+   ```
+import 'package:flutter/material.dart';
+import 'package:backpocket/widgets/left_drawer.dart';
+import 'package:backpocket/widgets/item_card.dart';
+
+List<RegisteredItem> formAddedItems = [];
+
+class ShopFormPage extends StatefulWidget {
+    const ShopFormPage({super.key});
+
+    @override
+    State<ShopFormPage> createState() => _ShopFormPageState();
+}
+
+class _ShopFormPageState extends State<ShopFormPage> {
+    final _formKey = GlobalKey<FormState>();
+    String _name = "";
+    int _price = 0;
+    int _quantity = 0;
+    String _description = "";
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Center(
+              child: Text(
+                'Add New Item',
+              ),
+            ),
+            backgroundColor: Colors.indigo,
+            foregroundColor: Colors.white,
+          ),
+          drawer: const LeftDrawer(),
+          body: Form(
+            key: _formKey,
+            child: SingleChildScrollView(
+              child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Nama Produk",
+                            labelText: "Nama Produk",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                          ),
+                          onChanged: (String? value) {
+                            setState(() {
+                              _name = value!;
+                            });
+                          },
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return "Nama tidak boleh kosong!";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Harga",
+                            labelText: "Harga",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                          ),
+                          onChanged: (String? value) {
+                            setState(() {
+                              _price = int.parse(value!);
+                            });
+                          },
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return "Harga tidak boleh kosong!";
+                            }
+                            if (int.tryParse(value) == null) {
+                              return "Harga harus berupa angka!";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Quantity",
+                            labelText: "Quantity",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                          ),
+                          onChanged: (String? value) {
+                            setState(() {
+                              _quantity = int.parse(value!);
+                            });
+                          },
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return "Quantity can't be 0!";
+                            }
+                            if (int.tryParse(value) == null) {
+                              return "Quantity can't be 0!";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Deskripsi",
+                            labelText: "Deskripsi",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                          ),
+                          onChanged: (String? value) {
+                            setState(() {
+                              _description = value!;
+                            });
+                          },
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return "Deskripsi tidak boleh kosong!";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.indigo),
+                            ),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                RegisteredItem newItem = RegisteredItem(
+                                  _name, 
+                                  _price, 
+                                  _quantity,
+                                  _description
+                                );
+                              formAddedItems.add(newItem);
+
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      title: const Text('Produk berhasil tersimpan'),
+                                      content: SingleChildScrollView(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text('Name: $_name'),
+                                            Text('Price: $_price'),
+                                            Text('Qty: $_quantity'),
+                                            Text('Description: $_description'),
+                                          ],
+                                        ),
+                                      ),
+                                      actions: [
+                                        TextButton(
+                                          child: const Text('OK'),
+                                          onPressed: () {
+                                            Navigator.pop(context); // Close dialog
+                                            Navigator.pop(context); //Close form page and return to Home
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+
+                              }
+                              _formKey.currentState!.reset();
+                            },
+                            child: const Text(
+                              "Save",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                    ] 
+              ),
+            ),
+          ),
+        );
+    }
+}
+```
+   6. 
+
 </details>
