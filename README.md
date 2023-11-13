@@ -66,6 +66,7 @@
     menampilkan pesan sementara (biasanya notifikasi) di bagian bawah layar ketika user mengklik item toko.
    
 ### 3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
+   **+ BONUS**
    1. install Flutter untuk windows dari cmd di direktori yang mau ditempatkan oleh folder proyek
    2. masuk ke direktori proyek dan create project flutter
    3. buat file baru menu.dart dalam direktori backpocket/lib untuk membuat menu utama pada aplikasi
@@ -74,8 +75,25 @@
    6. ubah menu.dart dari stateful menjadi stateless
    7. Tambah list yang berisi ShopItem agar dapat menampilkan tombol-tombol di home
    8. Set Scaffold agar format tombol dapat di-scroll, memiliki padding, dan di-set menjadi gridView
-   9. buat widget stateless bernama ShopCard untuk menampilkan card
-   10. push kode ke repositori github
+   9. buat widget stateless bernama ShopCard untuk menampilkan card dengan atribut name, icon, dan color (agar tiap ShopCard mempunyai warna yang berbeda)
+```dart
+class ShopItem {
+  final String name;
+  final IconData icon;
+  final Color color;
+
+  ShopItem(this.name, this.icon, this.color);
+}
+```
+   10. Tambahkan argumen warna untuk masing-masing ShopCard
+```dart
+  final List<ShopItem> items = [
+    ShopItem("View Items", Icons.checklist, (Colors.green[200])!),
+    ShopItem("Add Item", Icons.add_shopping_cart, (Colors.orange[100])!),
+    ShopItem("Logout", Icons.logout, (Colors.red[300])!),
+  ];
+```
+   12. push kode ke repositori github
 </details>
 
 ## Tugas 8: Flutter Navigation, Layouts, Forms, and Input Elements
