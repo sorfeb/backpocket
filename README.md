@@ -166,7 +166,7 @@
    2. `screens` berisi `menu.dart`.
    3. `widgets` berisi `shop_card.dart` dan `left_drawer.dart`.
    4. Buat file baru bernama `itemslist_form.dart` dan isi dengan kode untuk form mendaftar item baru dan juga tambahkan list untuk menampung item yang baru ditambahkan dengan nama `AddedItems`.
-   ```
+   ```dart
 import 'package:flutter/material.dart';
 import 'package:backpocket/widgets/left_drawer.dart';
 import 'package:backpocket/widgets/item_card.dart';
