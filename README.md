@@ -94,29 +94,69 @@
    Contoh dari penggunaan Navigator.pushReplacement() adalah saat ingin menavigasi ke _screen_ baru yang tidak ada kaitan sama sekali dengan _screen_ saat ini; seperti saat User telah berhasil ter-         autentikasi dan akan diredirect ke halaman utama (User tidak dapat balik ke halaman Login lagi karena sudah tidak relevan).
    
 ### 2. Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!
-#### 1. Single-child layout widgets
 
-   Container: Widget yang dapat digunakan untuk mengatur tampilan widget lainnya seperti padding, margin, dan background color.
-   Center: Widget yang digunakan untuk menempatkan widget lainnya di tengah-tengah layar.
-   Align: Widget yang digunakan untuk menempatkan widget lainnya pada posisi yang ditentukan.
-   FractionallySizedBox: Widget yang digunakan untuk menentukan ukuran widget anak sebagai fraksi dari ruang yang tersedia.
-   AspectRatio: Widget yang digunakan untuk menentukan rasio aspek widget anak.
-   Multi-child layout widgets
-
-#### 2. Row dan Column: Widget yang digunakan untuk menempatkan widget anak secara horizontal atau vertikal.
-      
-   Stack: Widget yang digunakan untuk menumpuk widget anak di atas satu sama lain.
-   IndexedStack: Widget yang digunakan untuk menumpuk widget anak di atas satu sama lain, tetapi hanya menampilkan satu widget pada satu waktu.
-   Flow: Widget yang digunakan untuk menempatkan widget anak dalam bentuk aliran.
-   Wrap: Widget yang digunakan untuk menempatkan widget anak dalam bentuk wrapping.
-      
-#### 3. Sliver widgets
-
-   SliverAppBar: Widget yang digunakan untuk menampilkan app bar yang dapat di-scroll.
-   SliverList dan SliverGrid: Widget yang digunakan untuk menampilkan daftar atau grid yang dapat di-scroll.
-   SliverToBoxAdapter: Widget yang digunakan untuk menempatkan widget lainnya di dalam CustomScrollView .
+   **Container:**                  mengatur tampilan widget lainnya; Cth: padding, margin, dan background color.
+   **Center:**                     menempatkan widget lainnya di tengah layar.
+   **Align:**                      menempatkan widget lainnya pada posisi yang ditentukan.
+   **FractionallySizedBox:**       menentukan ukuran widget anak sebagai fraksi dari ruang yang tersedia.
+   **AspectRatio:**                menentukan aspek rasio widget _children_ _widgets_.      
+   **Stack:**                      menumpuk widget anak di atas satu sama lain.
+   **Flow:**                       menempatkan widget anak dalam bentuk aliran.
+   **Wrap:**                       menempatkan widget anak dalam bentuk wrapping.
 
 ### 3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!
+   a. `TextFormField Name`:  Untuk tempat input **nama** item dengan tipe data String dari pengguna.
+   
+   b. `TextFormField Price`: Untuk tempat input **harga** item dengan tipe data int dari pengguna.
+   
+   c. `TextFormField Quantity`: Untuk tempat input **jumlah** item dengan tipe data int dari pengguna.
+   
+   d. `TextFormField "Description`: Untuk tempat input **deskripsi** item dengan tipe data String dari pengguna.
+   
 ### 4. Bagaimana penerapan clean architecture pada aplikasi Flutter?
+   Clean architecture adalah _blueprint_ untuk sistem modular, yang mengikuti prinsip desain _separation of concerns_. 
+   gaya arsitektur ini berfokus pada **pembagian perangkat lunak ke dalam beberapa lapisan**, untuk menyederhanakan pengembangan dan pemeliharaan. 
+
+   #### Separation of Concerns
+   - **Do one thing:** Sebuah fungsi harus melakukan satu hal saja dan melakukannya dengan baik.
+   - **Prinsip Tanggung Jawab Tunggal:** Sebuah metode/kelas/komponen harus memiliki satu alasan untuk berubah.
+   - **Injeksi Ketergantungan:** Sebisa mungkin, ketergantungan kelas harus disediakan oleh objek di luar kelas.
+   - **Arsitektur Kode**: yaitu _Clean architecture_.
+     
+   ![image](https://github.com/sorfeb/backpocket/assets/112263712/46b902bb-daa1-4fcc-8d36-4d3387fc45bf)
+
+   #### Layers
+   ##### a. Feature Layer - lapisan presentasi aplikasi
+   lapisan ini merupakan lapisan yang paling bergantung pada framework, karena berisi UI dan penangan peristiwa UI yang menggunakan widget untuk menampilkan tampilan.
+   Widget ini dikontrol oleh state menggunakan berbagai pola desain manajemen state yang digunakan dalam Flutter.
+   
+   - Halaman: Ini adalah halaman-halaman aplikasi kita.
+   - Manajemen State: BLoC, Penyedia, GetX, dll.
+   - Widget: Widget spesifik lainnya yang dibutuhkan oleh halaman kami.
+   
+   ##### b. Domain Layer - innermost part of the layers (no dependencies with other layers) and it contains Entities, Use Cases & Repository Interfaces.
+   ditulis murni dalam Dart tanpa elemen Flutter. Alasannya adalah bahwa domain seharusnya hanya berkaitan dengan logika bisnis aplikasi. Hal ini juga memungkinkan migrasi yang mudah antar platform, 
+   jika ada masalah yang muncul.
+   
+   - Kasus Penggunaan: Aturan-aturan bisnis khusus aplikasi
+   - Entitas: Objek bisnis dari aplikasi
+   - Repositori: Kelas abstrak yang mendefinisikan fungsionalitas yang diharapkan dari lapisan luar
+   
+   ##### c. Data Layer  - lapisan data aplikasi
+   Modul Data, yang merupakan bagian dari lapisan terluar, bertanggung jawab untuk pengambilan data. Ini bisa dalam bentuk panggilan API ke server dan/atau basis data lokal. Modul ini juga berisi 
+   implementasi repositori.
+   
+   - Repositori: Implementasi aktual dari repositori di lapisan Domain. Repositori bertanggung jawab untuk mengoordinasikan data dari berbagai Sumber Data.
+   - Model DTO: Representasi struktur JSON yang memungkinkan kita untuk berinteraksi dengan sumber data.
+   - Sumber Data: Terdiri dari Sumber Data jarak jauh dan lokal. Sumber Data jarak jauh akan melakukan permintaan HTTP pada API. Sedangkan Data Source lokal akan menyimpan data dalam cache atau 
+     persist.
+   - Pemeta (Mapper): Memetakan objek Entity ke Model dan sebaliknya.
+   
+   ##### d. Resources and Shared Library - dapat diakses oleh semua lapisan lainnya:
+   - Sumber daya: Berisi aset (gambar, font, warna, dll), dan konfigurasi lainnya.
+   - Pustaka Bersama: Berisi komponen yang dapat digunakan kembali, fungsi (navigasi, jaringan, dll), dan pustaka pihak ketiga.
+
+   _source:_ [An Introduction to Flutter Clean Architecture](https://medium.com/ruangguru/an-introduction-to-flutter-clean-architecture-ae00154001b0)
+   
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
 </details>
