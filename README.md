@@ -680,7 +680,21 @@ class _ShopFormPageState extends State<ShopFormPage> {
    ```
     
 ### 4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
-
+Untuk menjelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter, langkah-langkahnya dapat dijelaskan sebagai berikut:
+   1. Input Data Akun pada Flutter:
+       - Pengguna memasukkan data akun, seperti nama pengguna dan kata sandi, melalui antarmuka pengguna di aplikasi Flutter.
+   2. Permintaan Autentikasi ke Django:
+      - Aplikasi Flutter mengirim permintaan autentikasi ke backend Django, biasanya melalui permintaan HTTP POST yang berisi data akun yang dimasukkan pengguna.
+   3. Proses Autentikasi oleh Django:
+      - Django memeriksa data akun yang diterima dari Flutter, memverifikasi kebenaran data tersebut, dan menghasilkan token autentikasi jika autentikasi berhasil.
+   4. Pengembalian Token ke Flutter:
+      - Jika autentikasi berhasil, Django mengembalikan token autentikasi ke aplikasi Flutter sebagai respons dari permintaan autentikasi.
+   5. Penyimpanan Token di Flutter:
+      - Aplikasi Flutter menyimpan token autentikasi yang diterima dari Django, biasanya dalam penyimpanan lokal seperti shared_preferences atau flutter_secure_storage.
+   6. Tampilan Menu pada Flutter:
+      - Setelah menerima token autentikasi, aplikasi Flutter menggunakan token tersebut untuk mengakses endpoint yang memerlukan autentikasi di backend Django, misalnya untuk mendapatkan data menu yang diperlukan.
+   7. Menampilkan Menu pada Flutter:
+      - Data menu yang diterima dari Django ditampilkan pada antarmuka pengguna aplikasi Flutter, seperti dalam bentuk daftar menu atau tautan navigasi.
 
 ### 5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
 
