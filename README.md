@@ -628,9 +628,9 @@ class _ShopFormPageState extends State<ShopFormPage> {
 ```
 </details>
 
-## Tugas 9
-<summary>Answers</summary> 
+## Tugas 9: Integrasi Layanan Web Django dengan Aplikasi Flutter
 <details>
+<summary>Answers</summary> 
  Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
  Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
  Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
