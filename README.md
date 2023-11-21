@@ -631,10 +631,23 @@ class _ShopFormPageState extends State<ShopFormPage> {
 ## Tugas 9: Integrasi Layanan Web Django dengan Aplikasi Flutter
 <details>
 <summary>Answers</summary> 
- Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
- Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
- Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
- Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
- Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
- Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+ ### 1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+   Iya, pengambilan data JSON tanpa membuat model terlebih dahulu memungkinkan.
+   Namun, **dianjurkan lebih baik membuat model** terlebih dahulu sebelum mengambil data JSON. Hal ini karena model dapat membuat definisi data menjadi lebih terstruktur dan memastikan apakah data tersebut valid. Tanpa model, 
+   akan sulit untuk menangani error dan memastikan bahwa data digunakan dengan benar. (**Separation of Concerns**)
+
+### 2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+   Dalam tugas ini, terdapat fitur login yang dapat menyimpan data-data user aplikasi tersebut yang hanya dapat diakses oleh masing-masing akun secara ekslusif. Cookie dapat menyimpan informasi login, pengaturan website, dan
+   menyediakan konten yang lebih personal sehingga lebih gampang untuk memanajemen otentikasi pengguna dan penyimpanan data sesi user. CookieRequest dapat me_request_ data cookie dari web django agar widget flutter
+   menampilkan data sesuai dengan data user pribadi  _item_ apa saja yang sudah ditambah.
+    
+### 3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+   
+    
+### 6. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+### 7. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+
+### 8. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+
  </details>
