@@ -631,6 +631,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
 ## Tugas 9: Integrasi Layanan Web Django dengan Aplikasi Flutter
 <details>
 <summary>Answers</summary> 
+   
 ### 1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
    Iya, pengambilan data JSON tanpa membuat model terlebih dahulu memungkinkan.
    Namun, **dianjurkan lebih baik membuat model** terlebih dahulu sebelum mengambil data JSON. Hal ini karena model dapat membuat definisi data menjadi lebih terstruktur dan memastikan apakah data tersebut valid. Tanpa model, 
@@ -680,8 +681,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
    ```
     
 ### 4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
-Untuk menjelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter, langkah-langkahnya dapat dijelaskan sebagai berikut:
-   1. Input Data Akun pada Flutter:
+   1. Input Data Akun pada Halaman `LOGIN` flutter:
        - Pengguna memasukkan data akun, seperti nama pengguna dan kata sandi, melalui antarmuka pengguna di aplikasi Flutter.
    2. Permintaan Autentikasi ke Django:
       - Aplikasi Flutter mengirim permintaan autentikasi ke backend Django, biasanya melalui permintaan HTTP POST yang berisi data akun yang dimasukkan pengguna.
@@ -697,6 +697,7 @@ Untuk menjelaskan mekanisme autentikasi dari input data akun pada Flutter ke Dja
       - Data menu yang diterima dari Django ditampilkan pada antarmuka pengguna aplikasi Flutter, seperti dalam bentuk daftar menu atau tautan navigasi.
 
 ### 5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+
 
 ### 6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
 
