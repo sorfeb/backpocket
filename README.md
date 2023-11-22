@@ -717,9 +717,3 @@ class _ShopFormPageState extends State<ShopFormPage> {
    -  Mengubah semua fungsi `onTap()` dengan menambahkan `async` agar data termuat secara asinkronus.
      
 </details>
-
-- Buat halaman yang berisi daftar item. Hal tersebut dilakukan dengan menghubungkan web tugas Django ke tugas Flutter. Kemudian, jangan lupa untuk tampilkan _name_, _amount_, dan _description_ masing-masing _item_.
-
-- Buat halaman yang berisi detail item. Hal ini dilakukan dengan membuat tombol detail pada `list_product.dart`.
-  
- </details>
