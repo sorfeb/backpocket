@@ -627,3 +627,78 @@ class _ShopFormPageState extends State<ShopFormPage> {
             }
 ```
 </details>
+
+## Tugas 9: Integrasi Layanan Web Django dengan Aplikasi Flutter
+<details>
+<summary>Answers</summary> 
+   
+### 1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+   Iya, pengambilan data JSON tanpa membuat model terlebih dahulu memungkinkan.
+   Namun, **dianjurkan lebih baik membuat model** terlebih dahulu sebelum mengambil data JSON. Hal ini karena model dapat membuat definisi data menjadi lebih terstruktur dan memastikan apakah data tersebut valid. Tanpa model, 
+   akan sulit untuk menangani error dan memastikan bahwa data digunakan dengan benar. **(Separation of Concerns)**
+
+### 2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+   Dalam tugas ini, terdapat fitur login yang dapat menyimpan data-data user aplikasi tersebut yang hanya dapat diakses oleh masing-masing akun secara ekslusif. Cookie dapat menyimpan informasi login, pengaturan website, dan
+   menyediakan konten yang lebih personal sehingga lebih gampang untuk memanajemen otentikasi pengguna dan penyimpanan data sesi user. CookieRequest dapat me_request_ data cookie dari web django agar widget flutter
+   menampilkan data sesuai dengan data user pribadi  _item_ apa saja yang sudah ditambah.
+    
+### 3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+   1. `_HTTP request_` dilakukan lewat package tambahan yakni package `http`..
+   2. Aplikasi Flutter mengakses internet karena sudah diberi akses internet lewat file `android/app/src/main/AndroidManifest.xml` yang sudah tertulis dalam kode:
+```dart
+   ...
+       <application>
+       ...
+       </application>
+       <!-- Required to fetch data from the Internet. -->
+       <uses-permission android:name="android.permission.INTERNET" />
+   ...
+```
+   3. _Screen_ `list_product.dart` mengimpor model `product.dart` agar dapat menampilkan data sesuai dengan format model `product.dart`.
+   4.  _Screen_ `list_product.dart` mem-_fetch_ data `product` user dengan fungsi:
+   ```dart
+   Future<List<Product>> fetchProduct() async {
+    // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
+    var url = Uri.parse(
+        'http://<URL_APP_KAMU>/json/');
+    var response = await http.get(
+        url,
+        headers: {"Content-Type": "application/json"},
+    );
+
+    // melakukan decode response menjadi bentuk json
+    var data = jsonDecode(utf8.decode(response.bodyBytes));
+
+    // melakukan konversi data json menjadi object Product
+    List<Product> list_product = [];
+    for (var d in data) {
+        if (d != null) {
+            list_product.add(Product.fromJson(d));
+        }
+    }
+    return list_product;
+   }
+   ```
+    
+### 4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+   1. Input Data Akun pada Halaman `LOGIN` flutter:
+       - Pengguna memasukkan data akun, seperti nama pengguna dan kata sandi, melalui antarmuka pengguna di aplikasi Flutter.
+   2. Permintaan Autentikasi ke Django:
+      - Aplikasi Flutter mengirim permintaan autentikasi ke backend Django, biasanya melalui permintaan HTTP POST yang berisi data akun yang dimasukkan pengguna.
+   3. Proses Autentikasi oleh Django:
+      - Django memeriksa data akun yang diterima dari Flutter, memverifikasi kebenaran data tersebut, dan menghasilkan token autentikasi jika autentikasi berhasil.
+   4. Pengembalian Token ke Flutter:
+      - Jika autentikasi berhasil, Django mengembalikan token autentikasi ke aplikasi Flutter sebagai respons dari permintaan autentikasi.
+   5. Penyimpanan Token di Flutter:
+      - Aplikasi Flutter menyimpan token autentikasi yang diterima dari Django, biasanya dalam penyimpanan lokal seperti shared_preferences atau flutter_secure_storage.
+   6. Tampilan Menu pada Flutter:
+      - Setelah menerima token autentikasi, aplikasi Flutter menggunakan token tersebut untuk mengakses endpoint yang memerlukan autentikasi di backend Django, misalnya untuk mendapatkan data menu yang diperlukan.
+   7. Menampilkan Menu pada Flutter:
+      - Data menu yang diterima dari Django ditampilkan pada antarmuka pengguna aplikasi Flutter, seperti dalam bentuk daftar menu atau tautan navigasi.
+
+### 5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+
+
+### 6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+
+ </details>
