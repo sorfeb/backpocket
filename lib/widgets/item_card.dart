@@ -1,8 +1,7 @@
 class RegisteredItem{
   final String name;
-  final int price;
-  final int quantity;
+  final int amount;
   final String description;
 
-  RegisteredItem(this.name, this.price, this.quantity, this.description);
+  RegisteredItem(this.name, this.amount, this.description);
 }
