@@ -697,8 +697,29 @@ class _ShopFormPageState extends State<ShopFormPage> {
       - Data menu yang diterima dari Django ditampilkan pada antarmuka pengguna aplikasi Flutter, seperti dalam bentuk daftar menu atau tautan navigasi.
 
 ### 5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
-
+   - `AppBar`: Widget yang akan menampilkan bilah aplikasi pada bagian atas halaman.
+   - `MaterialApp`: Widget root untuk menginisialisasi Flutter.
+   - `SingleChildScrollView`: Widget yang memungkinkan kontennya dapat di-scroll jika melebihi ukuran layar.
+   - `Column`: Widget yang mengatur widget-chil_d secara vertikal.
+   - `Text`: Widget untuk menampilkan teks.
+   - `SizedBox`: Widget untuk memberikan ruang kosong dengan size tertentu.
+   - `ElevatedButton`: Widget untuk membuat tombol dengan latar belakang.
+   - `Scaffold`: Widget yang menyediakan struktur dasar untuk halaman, termasuk AppBar, Drawer, dan body.
+   - `LeftDrawer`: Widget kustom untuk konten drawer di sisi kiri halaman.
 
 ### 6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+   -  integrasi web app **hammerspace** dan flutter app **backpocket** dengan menambahkan app `authentication` agar user dapat login ke **backpocket** dengan akun dari **hammerspace**.
+   -  Tambahkan cookies untuk semua widget di **backpocket** agar data ditampilkan sesuai milik user mengunakan package `http` dan `pbp_django_auth`.
+   -  Buat model kustom `item.dart` dengan mengkonversi format json dari **hammerspace** menjadi kode dart.
+   -  Buat fungsi autentikasi fungsi-fungsi khusus flutter app (`login`, `logout`, dan `create-item-flutter`) di app `authentication` pada web app **hammerspace**.
+   -  Memodifikasi form item yang sudah ada `itemlist_form.dart` dengan menyesuaikan dengan cookies user saat ini.
+   -  Memodifikasi penampil item terdaftar yang sudah ada `itemlist_page.dart` dengan menyesuaikan dengan cookies user saat ini.
+   -  Mengubah semua fungsi `onTap()` dengan menambahkan `async` agar data termuat secara asinkronus.
+     
+</details>
 
+- Buat halaman yang berisi daftar item. Hal tersebut dilakukan dengan menghubungkan web tugas Django ke tugas Flutter. Kemudian, jangan lupa untuk tampilkan _name_, _amount_, dan _description_ masing-masing _item_.
+
+- Buat halaman yang berisi detail item. Hal ini dilakukan dengan membuat tombol detail pada `list_product.dart`.
+  
  </details>
